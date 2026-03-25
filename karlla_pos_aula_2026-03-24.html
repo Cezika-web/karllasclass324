@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Karlla — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Warm-up, pronúncia e comentários sobre intercâmbio</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Karlla &nbsp;•&nbsp;
+            <strong>Data:</strong> 24/03/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula presencial com foco em warm-up, correção entre colegas, comentários de texto e pronúncia de palavras-chave.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula presencial, trabalhamos principalmente <strong>fluência guiada + pronúncia</strong>. Começamos com um warm-up usando perguntas como <em>How are you feeling today?</em>, <em>Was your week really busy or kind of busy?</em> e <em>Did something really good happen this week?</em>, para praticar respostas mais naturais e o uso de intensificadores como <strong>really</strong>, <strong>pretty</strong>, <strong>very</strong> e <strong>kind of</strong>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois, fizemos uma atividade de <strong>correção em dupla</strong>: Vitor leu sentenças e Karlla corrigiu, e depois os papéis se inverteram. O foco foi perceber erros de lógica e de linguagem em frases como <em>I was in a hurry, so I walked very slowly to the bus</em>, <em>I met an exchange at the university yesterday</em> e <em>I stepped off the bus and stayed inside for 10 minutes</em>. Isso ajudou a reforçar vocabulário e atenção ao sentido da frase.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Também retomamos os comentários de um texto da aula anterior sobre pessoas mudando de país. A partir deles, demos atenção especial a expressões em negrito usadas para concordar e discordar, como <strong>I know the feeling</strong>, <strong>Interesting, but...</strong>, <strong>No way!</strong>, <strong>Are you kidding?</strong>, <strong>Absolutely!</strong> e <strong>You're so right.</strong> Em seguida, os alunos criaram um comentário próprio inspirado em uma das postagens.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Na parte de pronúncia, o foco principal ficou em <strong>hurry</strong>, <strong>exchange student</strong>, <strong>suddenly</strong>, <strong>step on</strong> e <strong>step off</strong>. Também aprofundamos a ideia de <strong>vogais curtas e longas</strong>, comparando pares como <em>hat</em> e <em>cap</em> (vogal curta), além de <em>meat</em> e <em>mat</em>, para perceber como pequenas mudanças no som mudam completamente a palavra.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>exchange student</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) estudante de intercâmbio</em><br>
+                <small>I met an exchange student at the university.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>in a hurry</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) com pressa</em><br>
+                <small>I was in a hurry this morning.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Expressões e palavras trabalhadas</h3>
+            <ul>
+              <li><strong>in a hurry</strong> – com pressa</li>
+              <li><strong>exchange student</strong> – estudante de intercâmbio</li>
+              <li><strong>suddenly</strong> – de repente</li>
+              <li><strong>step on</strong> – entrar / pisar em</li>
+              <li><strong>step off</strong> – descer / sair de</li>
+              <li><strong>so what?</strong> – e daí?</li>
+              <li><strong>long vowel</strong> – vogal longa</li>
+              <li><strong>short vowel</strong> – vogal curta</li>
+              <li><strong>week</strong> – semana</li>
+              <li><strong>busy</strong> – ocupado(a)</li>
+              <li><strong>motivated</strong> – motivado(a)</li>
+              <li><strong>tired</strong> – cansado(a)</li>
+            </ul>
+
+            <h3>Expressões dos comentários</h3>
+            <ul>
+              <li><strong>I know the feeling.</strong> – Eu sei bem como é / entendo esse sentimento.</li>
+              <li><strong>Interesting, but...</strong> – Interessante, mas...</li>
+              <li><strong>No way!</strong> – De jeito nenhum! / Nem pensar!</li>
+              <li><strong>Are you kidding?</strong> – Você está brincando?</li>
+              <li><strong>Absolutely!</strong> – Com certeza! / Absolutamente!</li>
+              <li><strong>You're so right.</strong> – Você está certíssimo(a).</li>
+            </ul>
+
+            <h3>Pronúncia e contraste de sons</h3>
+            <ul>
+              <li><strong>hat</strong> – chapéu</li>
+              <li><strong>cap</strong> – boné</li>
+              <li><strong>meat</strong> – carne</li>
+              <li><strong>mat</strong> – tapete / capacho</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>How are you feeling today?</li>
+              <li>Was your week really busy or kind of busy?</li>
+              <li>Did something really good happen this week?</li>
+              <li>I was in a hurry this morning.</li>
+              <li>I met an exchange student at the university yesterday.</li>
+              <li>I stepped on the bus and immediately got off.</li>
+              <li>I stepped off the bus and stayed inside for 10 minutes.</li>
+              <li>I know the feeling.</li>
+              <li>Interesting, but...</li>
+              <li>So what?</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>hurry</strong>: reforçamos a pronúncia da palavra e o uso correto da expressão <em>in a hurry</em>, em vez de traduções literais ou estruturas incompletas.</li>
+              <li><strong>exchange student</strong>: praticamos a pronúncia completa da expressão. A ideia foi evitar encurtamentos como <em>an exchange</em> quando o sentido correto era <em>exchange student</em>.</li>
+              <li><strong>suddenly</strong>: treinamos a pronúncia e o ritmo da palavra dentro da frase, para não “quebrar” a fala.</li>
+              <li><strong>step on</strong> × <strong>step off</strong>: reforçamos a diferença de significado. <em>Step on the bus</em> pode significar entrar/pisar, enquanto <em>step off the bus</em> é descer do ônibus.</li>
+              <li><strong>So what?</strong>: aprendemos que a expressão significa <em>“e daí?”</em>, geralmente com um tom de indiferença ou desafio, e não apenas uma pergunta neutra.</li>
+              <li><strong>Vogais curtas e longas</strong>: trabalhamos a diferença de som em pares como <em>hat / cap</em> e <em>meat / mat</em>, mostrando como a duração da vogal muda a palavra e a compreensão.</li>
+              <li>Nas frases de correção, o foco também foi perceber quando uma sentença estava <strong>gramaticalmente possível, mas sem sentido lógico</strong>, como nas combinações de ações contraditórias.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Aula presencial</a>
+            <a
+              class="media-btn"
+              href="#"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Aula presencial (sem gravação)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">54%</span></td>
+                <td class="talk-time">~27 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Karlla</span></td>
+                <td><span class="talk-percent">46%</span></td>
+                <td class="talk-time">~23 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>LER O POS AULA DE 2 A 3X NA SEMANA.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
